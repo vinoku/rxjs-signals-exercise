@@ -9,7 +9,7 @@ import { ProductService } from '../product.service';
   selector: 'pm-product-detail',
   templateUrl: './product-detail.component.html',
   standalone: true,
-  imports: [AsyncPipe, NgIf, NgFor, CurrencyPipe]
+  imports: [AsyncPipe, NgIf, NgFor, CurrencyPipe],
 })
 export class ProductDetailComponent {
   errorMessage = '';
@@ -17,18 +17,17 @@ export class ProductDetailComponent {
   private productService = inject(ProductService);
 
   // Product to display
-  product$ = this.productService.product$
-    .pipe(
-      catchError(err => {
-        this.errorMessage = err;
-        return EMPTY;
-      })
-    );
+  product$ = this.productService.product$.pipe(
+    catchError((err) => {
+      this.errorMessage = err;
+      return EMPTY;
+    }),
+  );
 
   // Set the page title
   // pageTitle = this.product ? `Product Detail for: ${this.product.productName}` : 'Product Detail';
   pageTitle = 'ProductDetail';
 
-  addToCart(product: Product) {
-  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  addToCart(product: Product) {}
 }
