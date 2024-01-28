@@ -1,13 +1,18 @@
+//import 'zone.js/dist/zone';  // Required for Stackblitz
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLinkActive, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'pm-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterLinkActive, RouterLink, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'rxjs-signals-exercise';
+  // Just enough here for the template to compile
+  pageTitle = 'Acme Product Management';
+
+  cartCount = 0;
+
 }
